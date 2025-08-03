@@ -17,13 +17,13 @@ func main() {
 			transactions = append(transactions, transaction)
 		}
 		isRepeatInput := checkUserChoice()
-		fmt.Println(transactions)
 		if !isRepeatInput {
 			break
 		} else {
 			continue
 		}
 	}
+	fmt.Println(transactions)
 
 }
 
