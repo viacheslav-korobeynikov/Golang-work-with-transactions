@@ -7,7 +7,7 @@ import "fmt"
 // Вывести массив
 
 func main() {
-	transactions := []int{}
+	transactions := []float64{}
 	for {
 		transactions = append(transactions, getUserInput())
 		isRepeatInput := checkUserChoice()
@@ -21,8 +21,8 @@ func main() {
 
 }
 
-func getUserInput() int {
-	var transaction int
+func getUserInput() float64 {
+	var transaction float64
 	fmt.Println("Введите значение транзакции: ")
 	fmt.Scan(&transaction)
 	return transaction
