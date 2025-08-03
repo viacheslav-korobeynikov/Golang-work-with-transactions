@@ -9,7 +9,13 @@ import "fmt"
 func main() {
 	transactions := []float64{}
 	for {
-		transactions = append(transactions, getUserInput())
+		transaction := getUserInput()
+		if transaction == 0 {
+			fmt.Println("Транзакция не может быть равна 0")
+			break
+		} else {
+			transactions = append(transactions, transaction)
+		}
 		isRepeatInput := checkUserChoice()
 		fmt.Println(transactions)
 		if !isRepeatInput {
