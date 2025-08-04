@@ -5,8 +5,16 @@ import "fmt"
 // В цикле спрашиваем ввод транзакций
 // Добавлять каждую введенную транзакцию в массив
 // Вывести массив
+// Вывести сумму баланса в консоль
 
 func main() {
+
+	//tr1 := []int{1, 2, 3}
+	//
+	//for _, value := range tr1 {
+	//	fmt.Println(value)
+	//}
+
 	transactions := []float64{}
 	for {
 		transaction := getUserInput()
@@ -15,12 +23,9 @@ func main() {
 			break
 		} else {
 			transactions = append(transactions, transaction)
-		}
-		isRepeatInput := checkUserChoice()
-		if !isRepeatInput {
-			break
-		} else {
-			continue
+			sum := calculateTransactionSum(transactions)
+			fmt.Println("Сумма транзакций составляет: ")
+			fmt.Println(sum)
 		}
 	}
 	fmt.Println(transactions)
@@ -34,13 +39,11 @@ func getUserInput() float64 {
 	return transaction
 }
 
-func checkUserChoice() bool {
-	var userChoice string
-	fmt.Println("Вы хотите добавить еще транзакцию (y/n): ")
-	fmt.Scan(&userChoice)
-	if userChoice == "y" || userChoice == "Y" {
-		return true
-	} else {
-		return false
+func calculateTransactionSum(arr []float64) float64 {
+	var sum float64
+	sum = 0
+	for _, value := range arr {
+		sum += value
 	}
+	return sum
 }
