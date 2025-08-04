@@ -19,22 +19,21 @@ func main() {
 	for {
 		transaction := getUserInput()
 		if transaction == 0 {
-			fmt.Println("Транзакция не может быть равна 0")
 			break
 		} else {
 			transactions = append(transactions, transaction)
-			sum := calculateTransactionSum(transactions)
-			fmt.Println("Сумма транзакций составляет: ")
-			fmt.Println(sum)
+
 		}
 	}
 	fmt.Println(transactions)
+	sum := calculateTransactionSum(transactions)
+	fmt.Printf("Сумма транзакций составляет: %.2f", sum)
 
 }
 
 func getUserInput() float64 {
 	var transaction float64
-	fmt.Println("Введите значение транзакции: ")
+	fmt.Println("Введите значение транзакции (n для выхода): ")
 	fmt.Scan(&transaction)
 	return transaction
 }
